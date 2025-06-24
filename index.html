@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANS–SITI | Anantashilpa Sustainable Infratech Innovations Pvt. Ltd.</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, #1a6e5a, #0d3d31);
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo {
+            width: 80px;
+            margin-right: 15px;
+        }
+        
+        .logo-text {
+            color: white;
+            font-size: 18px;
+            line-height: 1.2;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        nav ul li a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ff7f50;
+            left: 0;
+            bottom: -5px;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover:after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1a6e5a, #0d3d31);
+            color: white;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff10" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,224C672,213,768,171,864,149.3C960,128,1056,128,1152,149.3C1248,171,1344,213,1392,234.7L1440,256L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-text {
+            width: 50%;
+        }
+        
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .hero-text h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+        
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+        
+        .hero-image {
+            width: 45%;
+            position: relative;
+        }
+        
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: perspective(1000px) rotateY(-15deg);
+            transition: transform 0.5s ease;
+        }
+        
+        .hero-image img:hover {
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff7f50;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255,127,80,0.3);
+        }
+        
+        .btn:hover {
+            background: #ff6b3d;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255,127,80,0.4);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: #fff;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #1a6e5a;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 70%;
+            height: 3px;
+            background: #ff7f50;
+            bottom: 0;
+            left: 15%;
+        }
+        
+        .about-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .about-text {
+            width: 48%;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: #1a6e5a;
+            margin-bottom: 20px;
+        }
+        
+        .about-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            width: 48%;
+            position: relative;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Team Section */
+        .team {
+            padding: 100px 0;
+            background-color: #f9f9f9;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .team:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%231a6e5a10" d="M0,160L48,170.7C96,181,192,203,288,202.7C384,203,480,181,576,165.3C672,149,768,139,864,154.7C960,171,1056,213,1152,218.7C1248,224,1344,192,1392,176L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-repeat: no-repeat;
+            background-position: bottom;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: 1;
+        }
+        
+        .team-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .team-member {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .team-member-image {
+            width: 100%;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .team-member-image img {
+            transform: scale(1.05);
+        }
+        
+        .team-member-info {
+            padding: 25px;
+            text-align: center;
+        }
+        
+        .team-member-info h3 {
+            font-size: 1.5rem;
+            color: #1a6e5a;
+            margin-bottom: 5px;
+        }
+        
+        .team-member-info h4 {
+            font-size: 1rem;
+            color: #ff7f50;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        
+        .team-member-info p {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            margin: 0 5px;
+            color: #1a6e5a;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #1a6e5a;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* 3D Card Effect */
+        .team-member-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .team-member:hover .team-member-3d {
+            transform: rotateY(10deg);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #1a6e5a, #0d3d31);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 2px;
+            background: #ff7f50;
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-column p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: #e0e0e0;
+            margin-bottom: 15px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-column ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #ff7f50;
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+            color: #e0e0e0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+            
+            .hero-text, .hero-image {
+                width: 48%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo-container {
+                margin-bottom: 20px;
+                justify-content: center;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 15px;
+            }
+            
+            .hero-content {
+                flex-direction: column;
+            }
+            
+            .hero-text, .hero-image {
+                width: 100%;
+                text-align: center;
+            }
+            
+            .hero-text {
+                margin-bottom: 40px;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-text, .about-image {
+                width: 100%;
+            }
+            
+            .about-text {
+                margin-bottom: 40px;
+            }
+            
+            .team-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-text h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero-text h2 {
+                font-size: 1.2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+            }
+            
+            nav ul li {
+                margin: 5px 10px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="header-content">
+            <div class="logo-container">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNTAgMTBDMjcuOTEgMTAgMTAgMjcuOTEgMTAgNTBzMTcuOTEgNDAgNDAgNDBjMjIuMDkgMCA0MC0xNy45MSA0MC00MFM3Mi4wOSAxMCA1MCAxMHptMCA3NWMtMTkuMzMgMC0zNS0xNS42Ny0zNS0zNXMxNS42Ny0zNSAzNS0zNSAzNSAxNS42NyAzNSAzNS0xNS42NyAzNS0zNSAzNXoiLz48cGF0aCBmaWxsPSIjZmY3ZjUwIiBkPSJNNTAgMjVjLTEzLjgxIDAtMjUgMTEuMTktMjUgMjVzMTEuMTkgMjUgMjUgMjUgMjUtMTEuMTkgMjUtMjUtMTEuMTkgLTI1LTI1IC0yNXptMCA0MGMtOC4yOCAwLTE1LTYuNzItMTUtMTVzNi43Mi0xNSAxNS0xNSAxNSA2LjcyIDE1IDE1LTYuNzIgMTUtMTUgMTV6Ii8+PHBhdGggZmlsbD0iIzFhNmU1YSIgZD0iTTUwIDQwYy01LjUyIDAtMTAgNC40OC0xMCAxMHM0LjQ4IDEwIDEwIDEwIDEwLTQuNDggMTAtMTAtNC40OC0xMC0xMC0xMHptMCAxNWMtMi43NiAwLTUtMi4yNC01LTVzMi4yNC01IDUtNSA1IDIuMjQgNSA1LTIuMjQgNS01IDV6Ii8+PC9zdmc+" alt="Logo" class="logo">
+                <div class="logo-text">
+                    <div>IIT DHARWAD</div>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>ANS–SITI</h1>
+                <h2>Shaping Tomorrow's Infrastructure Solutions</h2>
+                <p>ANS–SITI (Anantashilpa Sustainable Infratech Innovations Pvt. Ltd.) pioneers sustainable infrastructure technology solutions, combining innovation with environmental responsibility.</p>
+            </div>
+            <div class="hero-image float-animation">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MDAgNTAwIj48cGF0aCBmaWxsPSIjMWE2ZTVhIiBkPSJNMjUwIDUwTDUwIDIwMHYyMDBsMjAwIDEwMCAyMDAtMTAwVjIwMEwyNTAgNTB6Ii8+PHBhdGggZmlsbD0iIzBkM2QzMSIgZD0iTTI1MCA1MEw1MCAyMDBsMjAwIDEwMCAyMDAtMTAwTDI1MCA1MHoiLz48cGF0aCBmaWxsPSIjMTQ1YzRhIiBkPSJNNTAgMjAwdjIwMGwyMDAgMTAwVjMwMEw1MCAyMDB6Ii8+PHBhdGggZmlsbD0iIzIxODA2OCIgZD0iTTI1MCAzMDB2MjAwbDIwMC0xMDBWMjAwTDI1MCAzMDB6Ii8+PHBhdGggZmlsbD0iI2ZmN2Y1MCIgZD0iTTE1MCAxNzVsMTAwLTUwIDEwMCA1MC0xMDAgNTAtMTAwLTUweiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik0xNTAgMjI1bDEwMC01MCAxMDAgNTB2MTAwbC0xMDAgNTAtMTAwLTUwVjIyNXoiLz48L3N2Zz4=" alt="5D-SITI Concept">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>About ANS–SITI</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Our Vision</h3>
+                <p>5D Sustainable InfraTech Innovations (5D-SITI) is at the forefront of developing sustainable infrastructure solutions that integrate cutting-edge technology with environmental consciousness.</p>
+                <p>Our approach encompasses the 5 dimensions of sustainable infrastructure: Design, Development, Deployment, Durability, and Digitalization. We believe that by addressing these dimensions holistically, we can create infrastructure that not only meets the needs of today but is also adaptable for the challenges of tomorrow.</p>
+                <p>Through our innovative solutions, we aim to revolutionize how infrastructure is conceived, built, and maintained, ensuring that it is not only functional and efficient but also environmentally responsible and socially beneficial.</p>
+            </div>
+            <div class="about-image">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1MDAgNTAwIj48Y2lyY2xlIGN4PSIyNTAiIGN5PSIyNTAiIHI9IjIwMCIgZmlsbD0iIzFhNmU1YSIvPjxjaXJjbGUgY3g9IjI1MCIgY3k9IjI1MCIgcj0iMTUwIiBmaWxsPSIjMjE4MDY4Ii8+PGNpcmNsZSBjeD0iMjUwIiBjeT0iMjUwIiByPSIxMDAiIGZpbGw9IiMxNDVjNGEiLz48Y2lyY2xlIGN4PSIyNTAiIGN5PSIyNTAiIHI9IjUwIiBmaWxsPSIjZmY3ZjUwIi8+PHBhdGggZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjIiIGQ9Ik0yNTAgNTB2NDAwTTUwIDI1MGg0MDBNMjUwIDI1MCA0MjAgODBNMjUwIDI1MCA4MCA4ME0yNTAgMjUwIDgwIDQyME0yNTAgMjUwIDQyMCA0MjAiLz48L3N2Zz4=" alt="5D-SITI Concept">
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="section-title">
+            <h2>Meet Our Team</h2>
+        </div>
+        <div class="team-content">
+            <div class="team-grid">
+                <!-- Team Member 1 -->
+                <div class="team-member">
+                    <div class="team-member-3d">
+                        <div class="team-member-image">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzE0NWM0YSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjcwIiByPSI0MCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01MCAxODBjMC00MCAxMDAtNDAgMTAwIDB6Ii8+PHJlY3QgeD0iNzAiIHk9IjgwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjdmNTAiLz48L3N2Zz4=" alt="Dr. Ramesh Nayaka">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Dr. Ramesh Nayaka</h3>
+                            <h4>Founder, Chairman and Managing Director</h4>
+                            <p>Ph.D. in Sustainable Infrastructure with over 15 years of experience in developing innovative solutions for environmental challenges.</p>
+                            <div class="social-links">
+                                <a href="#">🔗</a>
+                                <a href="#">📧</a>
+                                <a href="#">📱</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 2 -->
+                <div class="team-member">
+                    <div class="team-member-3d">
+                        <div class="team-member-image">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzE0NWM0YSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjcwIiByPSI0MCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01MCAxODBjMC00MCAxMDAtNDAgMTAwIDB6Ii8+PHJlY3QgeD0iNzAiIHk9IjgwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjdmNTAiLz48L3N2Zz4=" alt="Mrs. Sree Vidya">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Mrs. Sree Vidya</h3>
+                            <h4>Director and Chief Operating Officer</h4>
+                            <p>MBA with specialization in Operations Management. Expert in streamlining processes and optimizing resource allocation for sustainable projects.</p>
+                            <div class="social-links">
+                                <a href="#">🔗</a>
+                                <a href="#">📧</a>
+                                <a href="#">📱</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 3 -->
+                <div class="team-member">
+                    <div class="team-member-3d">
+                        <div class="team-member-image">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzE0NWM0YSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjcwIiByPSI0MCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01MCAxODBjMC00MCAxMDAtNDAgMTAwIDB6Ii8+PHJlY3QgeD0iNzAiIHk9IjgwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjdmNTAiLz48L3N2Zz4=" alt="Ms. Anitha Nayak">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Ms. Anitha Nayak</h3>
+                            <h4>Director and Chief Technical Officer</h4>
+                            <p>M.Tech in Environmental Engineering. Leads the technical development of our sustainable infrastructure solutions with a focus on innovation.</p>
+                            <div class="social-links">
+                                <a href="#">🔗</a>
+                                <a href="#">📧</a>
+                                <a href="#">📱</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Team Member 4 -->
+                <div class="team-member">
+                    <div class="team-member-3d">
+                        <div class="team-member-image">
+                            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMDAgMjAwIj48cmVjdCB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgZmlsbD0iIzE0NWM0YSIvPjxjaXJjbGUgY3g9IjEwMCIgY3k9IjcwIiByPSI0MCIgZmlsbD0iI2ZmZiIvPjxwYXRoIGZpbGw9IiNmZmYiIGQ9Ik01MCAxODBjMC00MCAxMDAtNDAgMTAwIDB6Ii8+PHJlY3QgeD0iNzAiIHk9IjgwIiB3aWR0aD0iNjAiIGhlaWdodD0iMTAiIGZpbGw9IiNmZjdmNTAiLz48L3N2Zz4=" alt="Mr. Manjunathgouda">
+                        </div>
+                        <div class="team-member-info">
+                            <h3>Mr. Manjunathgouda</h3>
+                            <h4>Director and Chief Sustainability Officer</h4>
+                            <p>M.Tech with expertise in sustainable development. Ensures all our projects meet the highest standards of environmental responsibility and social impact.</p>
+                            <div class="social-links">
+                                <a href="#">🔗</a>
+                                <a href="#">📧</a>
+                                <a href="#">📱</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>ANS–SITI</h3>
+                <p>Pioneering sustainable infrastructure technology solutions for a better tomorrow.</p>
+                <p>IIT Dharwad, Karnataka, India</p>
+            </div>
+            <div class="footer-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#team">Our Team</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Projects</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: info@5dsiti.com</p>
+                <p>Phone: +91 1234567890</p>
+                <p>Address: IIT Dharwad Campus, Karnataka, India - 580011</p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 ANS–SITI. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple JavaScript for 3D effect on team members
+        document.querySelectorAll('.team-member').forEach(member => {
+            member.addEventListener('mousemove', function(e) {
+                const card = this.querySelector('.team-member-3d');
+                const rect = this.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+                
+                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            });
+            
+            member.addEventListener('mouseleave', function() {
+                const card = this.querySelector('.team-member-3d');
+                card.style.transform = 'rotateX(0) rotateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
