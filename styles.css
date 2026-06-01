@@ -112,18 +112,19 @@ body {
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(135deg, rgba(37, 99, 235, 0.9), rgba(16, 185, 129, 0.8)),
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(16, 185, 129, 0.85)),
                 url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&h=900&fit=crop') center/cover;
-    min-height: 600px;
+    min-height: 500px;
     display: flex;
     align-items: center;
     position: relative;
     color: var(--white);
+    padding: 4rem 0;
 }
 
 .hero-content {
     text-align: center;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -132,6 +133,21 @@ body {
     font-weight: 700;
     margin-bottom: 1.5rem;
     line-height: 1.2;
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    opacity: 0.95;
+    line-height: 1.7;
+}
+
+.hero-mission {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    opacity: 0.9;
+    font-weight: 500;
+    line-height: 1.6;
 }
 
 .hero p {
@@ -145,6 +161,58 @@ body {
     gap: 1rem;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+/* Core Focus Areas Section */
+.focus-areas-section {
+    background: var(--white);
+    padding: 3.5rem 0;
+}
+
+.focus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+}
+
+.focus-card {
+    background: var(--grey-light);
+    padding: 2rem 1.75rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    border-left: 4px solid var(--primary-blue);
+    position: relative;
+}
+
+.focus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-left-color: var(--primary-green);
+}
+
+.focus-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-blue);
+    opacity: 0.15;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    line-height: 1;
+}
+
+.focus-card h3 {
+    color: var(--grey-dark);
+    margin-bottom: 0.75rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.focus-card p {
+    color: var(--grey-medium);
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
 /* Buttons */
@@ -221,12 +289,12 @@ body {
 
 /* Section Styles */
 section {
-    padding: 5rem 0;
+    padding: 4rem 0;
 }
 
 .section-header {
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
 }
 
 .section-header h2 {
@@ -650,7 +718,15 @@ section {
     }
 
     .hero h1 {
-        font-size: 2rem;
+        font-size: 2.25rem;
+    }
+
+    .hero-description {
+        font-size: 1.05rem;
+    }
+
+    .hero-mission {
+        font-size: 1rem;
     }
 
     .hero p {
@@ -672,7 +748,15 @@ section {
 
 @media (max-width: 640px) {
     .hero h1 {
-        font-size: 1.75rem;
+        font-size: 1.85rem;
+    }
+
+    .hero-description {
+        font-size: 1rem;
+    }
+
+    .hero-mission {
+        font-size: 0.95rem;
     }
 
     .intro-stats {
@@ -681,5 +765,9 @@ section {
 
     .hero-buttons {
         flex-direction: column;
+    }
+
+    .focus-grid {
+        grid-template-columns: 1fr;
     }
 }
