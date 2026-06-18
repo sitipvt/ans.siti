@@ -131,26 +131,6 @@ A clean, modern, and professional multi-page website for a sustainable infrastru
 
 ---
 
-## 🚀 Getting Started
-
-### Option 1: Open Directly
-Simply open `index.html` in your web browser to view the website.
-
-### Option 2: Use a Local Server
-For better performance and to avoid CORS issues:
-
-```bash
-# Using Python 3
-python -m http.server 8000
-
-# Using Node.js (http-server)
-npx http-server
-
-# Using PHP
-php -S localhost:8000
-```
-
-Then navigate to `http://localhost:8000` in your browser.
 
 ---
 
@@ -211,13 +191,6 @@ Then navigate to `http://localhost:8000` in your browser.
 
 ---
 
-## 📝 Notes for Presentation
-
-This website is designed as an **initial preview concept** suitable for:
-- Presenting to professors/research mentors
-- Early-stage company website preview
-- Demonstrating sustainable infrastructure focus
-- Showcasing research-oriented professional appearance
 
 ### What to Highlight:
 1. Clean, professional design
@@ -229,26 +202,9 @@ This website is designed as an **initial preview concept** suitable for:
 
 ---
 
-## 🔧 Technical Stack
-
-- **HTML5**: Semantic markup
-- **CSS3**: Modern styling with Flexbox and Grid
-- **JavaScript**: Vanilla JS (no frameworks)
-- **Google Fonts**: Inter font family
-- **Unsplash**: Placeholder images
-
----
-
 ## 📄 License
 
 This is a template website. Customize and use as needed for your project.
 
 ---
-
-## 🤝 Support
-
-For questions or modifications, refer to the code comments in each file.
-
----
-
 **Built with care for sustainable infrastructure innovation** 🌱🏗️
