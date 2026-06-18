@@ -130,3 +130,160 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LAUNCH SECTION — Scroll animations, counters, quote reveal
+════════════════════════════════════════════════════════════════ */
+(function initLaunchSection() {
+  'use strict';
+
+  /* ── Shared IntersectionObserver factory ── */
+  function makeObserver(callback, options) {
+    return new IntersectionObserver(callback, Object.assign({
+      threshold: 0.15,
+      rootMargin: '0px 0px -60px 0px'
+    }, options));
+  }
+
+  /* ─────────────────────────────────────────
+     1. Generic reveal: [data-launch-reveal]
+        and slide elements
+  ───────────────────────────────────────── */
+  var revealEls = document.querySelectorAll(
+    '[data-launch-reveal], [data-launch-slide]'
+  );
+
+  if (revealEls.length) {
+    var revealObs = makeObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    });
+    revealEls.forEach(function(el) { revealObs.observe(el); });
+  }
+
+  /* ─────────────────────────────────────────
+     2. Achievement cards — staggered pop-in
+  ───────────────────────────────────────── */
+  var achieveWrap = document.querySelector('.launch-achieve-wrap');
+  if (achieveWrap) {
+    var cardObs = makeObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var cards = entry.target.querySelectorAll('.launch-achieve-card');
+          cards.forEach(function(card) {
+            var delay = parseInt(card.getAttribute('data-delay') || '0', 10);
+            setTimeout(function() {
+              card.classList.add('is-visible');
+            }, delay);
+          });
+          cardObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    cardObs.observe(achieveWrap);
+  }
+
+  /* ─────────────────────────────────────────
+     3. Timeline items — staggered slide-in
+  ───────────────────────────────────────── */
+  var timelineWrap = document.querySelector('.launch-timeline-wrap');
+  if (timelineWrap) {
+    var tlObs = makeObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var items = entry.target.querySelectorAll('.lt-item');
+          items.forEach(function(item) {
+            var delay = parseInt(item.getAttribute('data-delay') || '0', 10);
+            setTimeout(function() {
+              item.classList.add('is-visible');
+            }, delay);
+          });
+          tlObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    tlObs.observe(timelineWrap);
+  }
+
+  /* ─────────────────────────────────────────
+     4. Count-up animation
+        Elements with data-count attribute
+  ───────────────────────────────────────── */
+  function animateCount(el) {
+    var target   = parseInt(el.getAttribute('data-count'), 10);
+    var prefix   = el.getAttribute('data-prefix') || '';
+    var suffix   = el.getAttribute('data-suffix') || '';
+    var duration = 1600; // ms
+    var start    = null;
+
+    function step(ts) {
+      if (!start) start = ts;
+      var progress = Math.min((ts - start) / duration, 1);
+      // ease-out cubic
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.floor(eased * target);
+      el.textContent = prefix + current + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+      else el.textContent = prefix + target + suffix;
+    }
+    requestAnimationFrame(step);
+  }
+
+  var countEls = document.querySelectorAll('[data-count]');
+  if (countEls.length) {
+    var countObs = makeObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateCount(entry.target);
+          countObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    countEls.forEach(function(el) { countObs.observe(el); });
+  }
+
+  /* ─────────────────────────────────────────
+     5. Quote — word-by-word reveal
+  ───────────────────────────────────────── */
+  var quoteEl = document.getElementById('launchQuoteText');
+  var quoteWrap = document.querySelector('.launch-quote-wrap');
+
+  if (quoteEl && quoteWrap) {
+    var QUOTE = 'Together, we are committed to shaping a more sustainable, resilient, and innovation-driven infrastructure ecosystem for the future. 🌏';
+
+    var quoteObs = makeObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          revealQuoteWords(QUOTE, quoteEl, 55);
+          quoteObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    quoteObs.observe(quoteWrap);
+  }
+
+  function revealQuoteWords(text, container, intervalMs) {
+    var words = text.split(' ');
+    container.textContent = '';
+    // Build spans
+    var spans = words.map(function(word) {
+      var span = document.createElement('span');
+      span.textContent = word + ' ';
+      span.style.cssText = 'opacity:0;display:inline;transition:opacity 0.35s ease';
+      container.appendChild(span);
+      return span;
+    });
+    // Stagger reveal
+    spans.forEach(function(span, i) {
+      setTimeout(function() {
+        span.style.opacity = '1';
+      }, i * intervalMs);
+    });
+  }
+
+})();
